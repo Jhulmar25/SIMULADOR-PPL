@@ -1,0 +1,2307 @@
+/* =========================================================
+   SIMULADOR DGAC - PILOTO PRIVADO
+   styles.css
+   PC / TABLET / IPHONE / ANDROID
+========================================================= */
+
+
+/* =========================================================
+   1. VARIABLES
+========================================================= */
+
+:root {
+  --azul-oscuro: #133b6c;
+  --azul: #1d4e89;
+  --azul-medio: #2864a6;
+  --azul-claro: #eaf2fb;
+
+  --naranja: #ff8a1f;
+  --naranja-oscuro: #e66f00;
+  --naranja-claro: #fff3e7;
+
+  --verde: #16834b;
+  --verde-claro: #eaf8f0;
+
+  --rojo: #b42318;
+  --rojo-claro: #fff0ee;
+
+  --gris-900: #172033;
+  --gris-700: #475467;
+  --gris-600: #667085;
+  --gris-500: #98a2b3;
+  --gris-300: #d0d5dd;
+  --gris-200: #e4e7ec;
+  --gris-100: #f2f4f7;
+  --gris-50: #f8fafc;
+
+  --blanco: #ffffff;
+
+  --sombra:
+    0 8px 28px rgba(19, 59, 108, 0.10);
+
+  --sombra-suave:
+    0 3px 12px rgba(16, 24, 40, 0.06);
+
+  --sombra-fuerte:
+    0 20px 55px rgba(0, 0, 0, 0.22);
+
+  --radio: 18px;
+
+  --ancho-maximo: 1180px;
+
+  --header-altura: 70px;
+}
+
+
+/* =========================================================
+   2. RESET
+========================================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+
+  margin: 0;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  background: #f6f8fb;
+
+  color: var(--gris-900);
+
+  line-height: 1.5;
+
+  overflow-x: hidden;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible {
+  outline: 3px solid rgba(255, 138, 31, 0.35);
+  outline-offset: 3px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.oculto {
+  display: none !important;
+}
+
+.sin-scroll {
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   3. HEADER
+========================================================= */
+
+.header-principal {
+  position: sticky;
+  top: 0;
+
+  z-index: 100;
+
+  width: 100%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #133b6c 0%,
+      #245d9b 100%
+    );
+
+  color: white;
+
+  box-shadow:
+    0 3px 14px rgba(19, 59, 108, 0.20);
+
+  padding-top:
+    env(safe-area-inset-top);
+}
+
+.header-contenido {
+  width: min(
+    calc(100% - 32px),
+    var(--ancho-maximo)
+  );
+
+  min-height: var(--header-altura);
+
+  margin: auto;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 16px;
+}
+
+.logo-app {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+.logo-icono {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 12px;
+
+  background: var(--naranja);
+
+  color: white;
+
+  font-size: 23px;
+
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.14);
+}
+
+.logo-texto h1 {
+  color: white;
+
+  font-size: 18px;
+
+  font-weight: 800;
+
+  line-height: 1.15;
+}
+
+.logo-texto span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: rgba(255, 255, 255, 0.80);
+
+  font-size: 11px;
+}
+
+.btn-header {
+  min-height: 40px;
+
+  padding: 8px 16px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.30);
+
+  border-radius: 10px;
+
+  background:
+    rgba(255, 255, 255, 0.10);
+
+  color: white;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   4. PANTALLAS
+========================================================= */
+
+.pantalla {
+  display: none;
+
+  width: 100%;
+
+  min-height:
+    calc(
+      100vh -
+      var(--header-altura)
+    );
+}
+
+.pantalla.activa {
+  display: block;
+}
+
+.contenedor {
+  width: min(
+    calc(100% - 32px),
+    var(--ancho-maximo)
+  );
+
+  margin: auto;
+
+  padding: 32px 0 60px;
+}
+
+.contenedor-pequeno {
+  max-width: 760px;
+}
+
+
+/* =========================================================
+   5. PRESENTACIÓN SUPERIOR
+
+   IMPORTANTE:
+   NO TIENE AVIÓN GRANDE TRANSPARENTE.
+========================================================= */
+
+.presentacion {
+  position: relative;
+
+  overflow: hidden;
+
+  margin-bottom: 30px;
+
+  padding: 32px;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #153f72 0%,
+      #235a96 100%
+    );
+
+  color: white;
+
+  box-shadow: var(--sombra);
+}
+
+.presentacion-icono {
+  width: 50px;
+  height: 50px;
+
+  display: grid;
+
+  place-items: center;
+
+  margin-bottom: 17px;
+
+  border-radius: 14px;
+
+  background: var(--naranja);
+
+  color: white;
+
+  font-size: 26px;
+}
+
+.presentacion h2 {
+  margin-bottom: 10px;
+
+  color: white;
+
+  font-size:
+    clamp(25px, 4vw, 36px);
+
+  line-height: 1.18;
+
+  font-weight: 850;
+}
+
+.presentacion p {
+  color:
+    rgba(255, 255, 255, 0.83);
+
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   6. TÍTULO DE SECCIÓN
+========================================================= */
+
+.titulo-seccion {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  margin-bottom: 17px;
+}
+
+.numero-seccion {
+  width: 43px;
+  height: 43px;
+
+  flex-shrink: 0;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 12px;
+
+  background: var(--naranja-claro);
+
+  color: var(--naranja-oscuro);
+
+  font-size: 12px;
+
+  font-weight: 900;
+}
+
+.titulo-seccion h3 {
+  color: var(--gris-900);
+
+  font-size: 19px;
+
+  line-height: 1.25;
+}
+
+.titulo-seccion p {
+  margin-top: 2px;
+
+  color: var(--gris-600);
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   7. GRID DE MATERIAS
+========================================================= */
+
+.grid-materias {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 13px;
+}
+
+.tarjeta-materia {
+  width: 100%;
+
+  min-height: 100px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 18px;
+
+  border:
+    1px solid var(--gris-200);
+
+  border-radius: 17px;
+
+  background: white;
+
+  color: inherit;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  box-shadow: var(--sombra-suave);
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.tarjeta-materia:hover {
+  transform: translateY(-2px);
+
+  border-color:
+    rgba(29, 78, 137, 0.35);
+
+  box-shadow: var(--sombra);
+}
+
+.tarjeta-materia:active {
+  transform: scale(0.985);
+}
+
+.materia-icono {
+  width: 50px;
+  height: 50px;
+
+  flex-shrink: 0;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 14px;
+
+  background: var(--azul-claro);
+
+  color: var(--azul);
+
+  font-size: 23px;
+}
+
+.materia-info {
+  min-width: 0;
+
+  flex: 1;
+}
+
+.materia-info h3 {
+  margin-bottom: 4px;
+
+  color: var(--azul-oscuro);
+
+  font-size: 15px;
+
+  line-height: 1.3;
+
+  font-weight: 800;
+}
+
+.materia-info p {
+  color: var(--gris-600);
+
+  font-size: 12px;
+
+  line-height: 1.4;
+}
+
+.materia-flecha {
+  flex-shrink: 0;
+
+  color: var(--naranja);
+
+  font-size: 29px;
+
+  font-weight: 400;
+
+  line-height: 1;
+}
+
+
+/* =========================================================
+   8. TARJETA SIMULADOR DGAC
+========================================================= */
+
+.tarjeta-simulador {
+  border: 2px solid var(--naranja);
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff8f1 0%,
+      #ffffff 70%
+    );
+
+  box-shadow:
+    0 5px 18px rgba(255, 138, 31, 0.10);
+}
+
+.tarjeta-simulador:hover {
+  border-color: var(--naranja-oscuro);
+
+  box-shadow:
+    0 8px 24px rgba(255, 138, 31, 0.18);
+}
+
+.tarjeta-simulador
+.materia-info h3 {
+  color: var(--naranja-oscuro);
+}
+
+.simulador-icono {
+  background:
+    linear-gradient(
+      135deg,
+      var(--naranja),
+      var(--naranja-oscuro)
+    );
+
+  color: white;
+
+  font-size: 17px;
+
+  font-weight: 900;
+
+  box-shadow:
+    0 5px 13px rgba(255, 138, 31, 0.25);
+}
+
+
+/* =========================================================
+   9. VOLVER
+========================================================= */
+
+.btn-volver {
+  margin-bottom: 18px;
+
+  padding: 8px 2px;
+
+  border: 0;
+
+  background: transparent;
+
+  color: var(--azul);
+
+  font-weight: 750;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   10. CONFIGURACIÓN
+========================================================= */
+
+.configuracion-card {
+  padding: 36px;
+
+  border:
+    1px solid var(--gris-200);
+
+  border-radius: 22px;
+
+  background: white;
+
+  text-align: center;
+
+  box-shadow: var(--sombra);
+}
+
+.configuracion-icono {
+  width: 65px;
+  height: 65px;
+
+  display: grid;
+
+  place-items: center;
+
+  margin:
+    0 auto 16px;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--azul),
+      var(--azul-oscuro)
+    );
+
+  color: white;
+
+  font-size: 29px;
+}
+
+.etiqueta {
+  margin-bottom: 6px;
+
+  color: var(--naranja-oscuro);
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.2px;
+}
+
+.configuracion-card h2 {
+  color: var(--azul-oscuro);
+
+  font-size: 27px;
+}
+
+.configuracion-card >
+p:not(.etiqueta) {
+  margin-top: 5px;
+
+  color: var(--gris-600);
+
+  font-size: 14px;
+}
+
+.separador {
+  height: 1px;
+
+  margin: 27px 0;
+
+  background: var(--gris-200);
+}
+
+.configuracion-card h3 {
+  margin-bottom: 17px;
+
+  font-size: 16px;
+}
+
+
+/* =========================================================
+   11. CANTIDAD DE PREGUNTAS
+========================================================= */
+
+.cantidades {
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, 1fr);
+
+  gap: 9px;
+
+  margin-bottom: 26px;
+}
+
+.btn-cantidad {
+  min-height: 50px;
+
+  padding: 10px;
+
+  border:
+    2px solid var(--gris-200);
+
+  border-radius: 11px;
+
+  background: white;
+
+  color: var(--gris-700);
+
+  font-weight: 850;
+
+  cursor: pointer;
+
+  transition: 0.18s ease;
+}
+
+.btn-cantidad:hover {
+  border-color: var(--azul);
+
+  color: var(--azul);
+}
+
+.btn-cantidad.seleccionada {
+  border-color: var(--azul);
+
+  background: var(--azul);
+
+  color: white;
+
+  box-shadow:
+    0 5px 14px rgba(29, 78, 137, 0.20);
+}
+
+
+/* =========================================================
+   12. BOTONES
+========================================================= */
+
+.btn-principal,
+.btn-secundario,
+.btn-terminar {
+  min-height: 49px;
+
+  padding: 11px 21px;
+
+  border-radius: 11px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.btn-principal {
+  border: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--naranja),
+      var(--naranja-oscuro)
+    );
+
+  color: white;
+
+  box-shadow:
+    0 5px 15px rgba(255, 138, 31, 0.23);
+}
+
+.configuracion-card >
+.btn-principal {
+  width: 100%;
+}
+
+.btn-principal:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.btn-principal:disabled,
+.btn-secundario:disabled {
+  opacity: 0.42;
+
+  cursor: not-allowed;
+
+  box-shadow: none;
+}
+
+.btn-secundario {
+  border:
+    1px solid var(--gris-300);
+
+  background: white;
+
+  color: var(--azul-oscuro);
+}
+
+.btn-secundario:hover:not(:disabled) {
+  border-color: var(--azul);
+
+  background: var(--azul-claro);
+}
+
+.btn-terminar {
+  border:
+    1px solid rgba(180, 35, 24, 0.25);
+
+  background: var(--rojo-claro);
+
+  color: var(--rojo);
+}
+
+
+/* =========================================================
+   13. EXAMEN
+========================================================= */
+
+.contenedor-examen {
+  width: min(
+    calc(100% - 32px),
+    900px
+  );
+
+  margin: auto;
+
+  padding: 27px 0 65px;
+}
+
+.examen-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 18px;
+
+  margin-bottom: 14px;
+}
+
+.examen-materia {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: var(--azul-oscuro);
+
+  font-size: 18px;
+
+  font-weight: 850;
+}
+
+.contador {
+  color: var(--gris-600);
+
+  font-size: 12px;
+}
+
+.contador strong {
+  color: var(--gris-900);
+}
+
+
+/* =========================================================
+   14. PROGRESO
+========================================================= */
+
+.barra-progreso {
+  width: 100%;
+  height: 7px;
+
+  overflow: hidden;
+
+  margin-bottom: 20px;
+
+  border-radius: 999px;
+
+  background: var(--gris-200);
+}
+
+.progreso {
+  width: 0%;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--naranja),
+      #ffb15d
+    );
+
+  transition:
+    width 0.25s ease;
+}
+
+
+/* =========================================================
+   15. PREGUNTA
+========================================================= */
+
+.pregunta-card {
+  padding: 30px;
+
+  border:
+    1px solid var(--gris-200);
+
+  border-radius: 21px;
+
+  background: white;
+
+  box-shadow: var(--sombra);
+}
+
+.numero-pregunta {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-bottom: 15px;
+}
+
+.numero-pregunta span {
+  color: var(--gris-500);
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+.numero-pregunta strong {
+  display: inline-flex;
+
+  align-items: center;
+
+  min-height: 26px;
+
+  padding: 3px 9px;
+
+  border-radius: 7px;
+
+  background: var(--naranja-claro);
+
+  color: var(--naranja-oscuro);
+
+  font-size: 11px;
+}
+
+.texto-pregunta {
+  margin-bottom: 24px;
+
+  color: var(--gris-900);
+
+  font-size:
+    clamp(19px, 2.8vw, 23px);
+
+  line-height: 1.43;
+
+  font-weight: 750;
+}
+
+
+/* =========================================================
+   16. FIGURAS
+========================================================= */
+
+.contenedor-figura {
+  margin:
+    5px 0 24px;
+
+  padding: 14px;
+
+  border:
+    1px solid var(--gris-200);
+
+  border-radius: 15px;
+
+  background: var(--gris-50);
+}
+
+.figura-titulo {
+  margin-bottom: 10px;
+
+  color: var(--azul-oscuro);
+
+  font-size: 11px;
+
+  font-weight: 850;
+
+  text-transform: uppercase;
+}
+
+.figura-boton {
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  cursor: zoom-in;
+}
+
+.figura-boton img {
+  max-width: 100%;
+
+  max-height: 520px;
+
+  object-fit: contain;
+
+  border-radius: 8px;
+
+  background: white;
+}
+
+.mensaje-zoom {
+  color: var(--gris-600);
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   17. RESPUESTAS
+========================================================= */
+
+.opciones-respuesta {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 11px;
+}
+
+.opcion-respuesta {
+  width: 100%;
+
+  min-height: 64px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  padding: 13px 16px;
+
+  border:
+    2px solid var(--gris-200);
+
+  border-radius: 13px;
+
+  background: white;
+
+  color: var(--gris-900);
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.17s ease,
+    background 0.17s ease,
+    transform 0.12s ease;
+}
+
+.opcion-respuesta:hover:not(:disabled) {
+  border-color: var(--azul);
+
+  background: #f8fbff;
+}
+
+.opcion-respuesta:active:not(:disabled) {
+  transform: scale(0.993);
+}
+
+.opcion-respuesta:disabled {
+  cursor: default;
+
+  opacity: 1;
+}
+
+.letra-opcion {
+  width: 37px;
+  height: 37px;
+
+  flex-shrink: 0;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 10px;
+
+  background: var(--gris-100);
+
+  color: var(--azul-oscuro);
+
+  font-size: 13px;
+
+  font-weight: 900;
+}
+
+.texto-opcion {
+  flex: 1;
+
+  font-size: 15px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   18. RESPUESTA CORRECTA
+========================================================= */
+
+.opcion-respuesta.correcta {
+  border-color: var(--verde);
+
+  background: var(--verde-claro);
+}
+
+.opcion-respuesta.correcta
+.letra-opcion {
+  background: var(--verde);
+
+  color: white;
+}
+
+
+/* =========================================================
+   19. RESPUESTA INCORRECTA
+========================================================= */
+
+.opcion-respuesta.incorrecta {
+  border-color: var(--rojo);
+
+  background: var(--rojo-claro);
+}
+
+.opcion-respuesta.incorrecta
+.letra-opcion {
+  background: var(--rojo);
+
+  color: white;
+}
+
+
+/* =========================================================
+   20. RETROALIMENTACIÓN
+========================================================= */
+
+.retroalimentacion {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 12px;
+
+  margin-top: 18px;
+
+  padding: 15px;
+
+  border-radius: 13px;
+
+  border:
+    1px solid var(--gris-200);
+}
+
+.retroalimentacion.exito {
+  border-color:
+    rgba(22, 131, 75, 0.25);
+
+  background: var(--verde-claro);
+}
+
+.retroalimentacion.error {
+  border-color:
+    rgba(180, 35, 24, 0.22);
+
+  background: var(--rojo-claro);
+}
+
+.resultado-icono {
+  width: 33px;
+  height: 33px;
+
+  flex-shrink: 0;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 50%;
+
+  font-weight: 900;
+}
+
+.exito .resultado-icono {
+  background: var(--verde);
+
+  color: white;
+}
+
+.error .resultado-icono {
+  background: var(--rojo);
+
+  color: white;
+}
+
+.retroalimentacion h3 {
+  margin-bottom: 3px;
+
+  font-size: 14px;
+}
+
+.retroalimentacion p {
+  color: var(--gris-700);
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   21. NAVEGACIÓN EXAMEN
+========================================================= */
+
+.navegacion-examen {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 14px;
+
+  margin-top: 19px;
+}
+
+
+/* =========================================================
+   22. RESULTADOS
+========================================================= */
+
+.resultado-card {
+  padding: 38px;
+
+  border:
+    1px solid var(--gris-200);
+
+  border-radius: 22px;
+
+  background: white;
+
+  text-align: center;
+
+  box-shadow: var(--sombra);
+}
+
+.resultado-final-icono {
+  width: 70px;
+  height: 70px;
+
+  display: grid;
+
+  place-items: center;
+
+  margin:
+    0 auto 17px;
+
+  border-radius: 50%;
+
+  font-size: 31px;
+
+  font-weight: 900;
+}
+
+.resultado-final-icono.aprobado {
+  background: var(--verde-claro);
+
+  color: var(--verde);
+}
+
+.resultado-final-icono.desaprobado {
+  background: var(--rojo-claro);
+
+  color: var(--rojo);
+}
+
+.resultado-card h2 {
+  color: var(--azul-oscuro);
+
+  font-size: 29px;
+}
+
+.resultado-materia {
+  margin-top: 4px;
+
+  color: var(--gris-600);
+}
+
+
+/* =========================================================
+   23. PORCENTAJE
+========================================================= */
+
+.porcentaje-circular {
+  width: 148px;
+  height: 148px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin:
+    28px auto;
+
+  border:
+    10px solid var(--azul-claro);
+
+  border-radius: 50%;
+
+  background: white;
+}
+
+.porcentaje-circular strong {
+  color: var(--azul-oscuro);
+
+  font-size: 33px;
+
+  line-height: 1;
+}
+
+.porcentaje-circular span {
+  margin-top: 7px;
+
+  color: var(--gris-600);
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   24. ESTADÍSTICAS
+========================================================= */
+
+.estadisticas {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 11px;
+
+  margin-bottom: 26px;
+}
+
+.estadistica {
+  padding: 17px 9px;
+
+  border-radius: 13px;
+
+  background: var(--gris-50);
+}
+
+.estadistica span {
+  display: block;
+
+  margin-bottom: 3px;
+
+  font-size: 24px;
+
+  font-weight: 900;
+}
+
+.estadistica small {
+  color: var(--gris-600);
+}
+
+.estadistica.correcta span {
+  color: var(--verde);
+}
+
+.estadistica.incorrecta span {
+  color: var(--rojo);
+}
+
+.estadistica.total span {
+  color: var(--azul);
+}
+
+.resultado-botones {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 11px;
+}
+
+
+/* =========================================================
+   25. VISOR DE FIGURA
+========================================================= */
+
+.modal-imagen {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 1000;
+
+  display: flex;
+
+  flex-direction: column;
+
+  background:
+    rgba(3, 10, 22, 0.97);
+
+  color: white;
+
+  padding-top:
+    env(safe-area-inset-top);
+
+  padding-bottom:
+    env(safe-area-inset-bottom);
+}
+
+.modal-header {
+  min-height: 60px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 14px;
+
+  padding: 9px 18px;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.12);
+}
+
+.modal-header span {
+  font-weight: 800;
+}
+
+.btn-cerrar-modal {
+  width: 44px;
+  height: 44px;
+
+  display: grid;
+
+  place-items: center;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.12);
+
+  color: white;
+
+  font-size: 27px;
+
+  cursor: pointer;
+}
+
+.zona-zoom {
+  flex: 1;
+
+  min-height: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  overflow: auto;
+
+  padding: 18px;
+
+  touch-action: none;
+}
+
+.zona-zoom img {
+  max-width: 100%;
+
+  max-height: 100%;
+
+  object-fit: contain;
+
+  transform-origin:
+    center center;
+
+  transition:
+    transform 0.10s ease;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+}
+
+.controles-zoom {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 11px;
+
+  padding: 12px 18px;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.12);
+}
+
+.controles-zoom button {
+  min-width: 52px;
+
+  min-height: 44px;
+
+  padding: 7px 13px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.20);
+
+  border-radius: 10px;
+
+  background:
+    rgba(255, 255, 255, 0.10);
+
+  color: white;
+
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   26. MODAL TERMINAR
+========================================================= */
+
+.modal-confirmacion {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 1100;
+
+  display: grid;
+
+  place-items: center;
+
+  padding: 20px;
+
+  background:
+    rgba(16, 24, 40, 0.64);
+
+  backdrop-filter: blur(5px);
+
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.modal-confirmacion-card {
+  width:
+    min(100%, 470px);
+
+  padding: 29px;
+
+  border-radius: 21px;
+
+  background: white;
+
+  text-align: center;
+
+  box-shadow:
+    var(--sombra-fuerte);
+}
+
+.modal-alerta {
+  width: 57px;
+  height: 57px;
+
+  display: grid;
+
+  place-items: center;
+
+  margin:
+    0 auto 14px;
+
+  border-radius: 50%;
+
+  background: var(--rojo-claro);
+
+  color: var(--rojo);
+
+  font-size: 26px;
+
+  font-weight: 900;
+}
+
+.modal-confirmacion-card h2 {
+  margin-bottom: 8px;
+
+  color: var(--azul-oscuro);
+}
+
+.modal-confirmacion-card p {
+  color: var(--gris-600);
+
+  font-size: 13px;
+
+  line-height: 1.55;
+}
+
+.modal-botones {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 10px;
+
+  margin-top: 22px;
+}
+
+
+/* =========================================================
+   27. TABLETS
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .contenedor {
+    padding-top: 26px;
+  }
+
+  .grid-materias {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .cantidades {
+    grid-template-columns:
+      repeat(3, 1fr);
+  }
+
+  .btn-cantidad:last-child {
+    grid-column: span 2;
+  }
+
+}
+
+
+/* =========================================================
+   28. IPHONE / ANDROID
+========================================================= */
+
+@media (max-width: 600px) {
+
+  :root {
+    --header-altura: 66px;
+  }
+
+
+  /* HEADER */
+
+  .header-contenido {
+    width:
+      calc(100% - 24px);
+
+    min-height: 66px;
+  }
+
+  .logo-app {
+    gap: 10px;
+  }
+
+  .logo-icono {
+    width: 39px;
+    height: 39px;
+
+    border-radius: 10px;
+
+    font-size: 21px;
+  }
+
+  .logo-texto h1 {
+    font-size: 15px;
+  }
+
+  .logo-texto span {
+    font-size: 10px;
+  }
+
+  .btn-header {
+    min-height: 37px;
+
+    padding: 6px 11px;
+
+    font-size: 11px;
+  }
+
+
+  /* CONTENIDO */
+
+  .contenedor {
+    width:
+      calc(100% - 20px);
+
+    padding:
+      19px
+      0
+      calc(
+        35px +
+        env(safe-area-inset-bottom)
+      );
+  }
+
+
+  /* TARJETA AZUL */
+
+  .presentacion {
+    margin-bottom: 24px;
+
+    padding: 24px 20px;
+
+    border-radius: 18px;
+  }
+
+  .presentacion-icono {
+    width: 48px;
+    height: 48px;
+
+    margin-bottom: 14px;
+
+    border-radius: 13px;
+
+    font-size: 23px;
+  }
+
+  .presentacion h2 {
+    margin-bottom: 10px;
+
+    font-size: 24px;
+
+    line-height: 1.2;
+  }
+
+  .presentacion p {
+    font-size: 13px;
+  }
+
+
+  /* TÍTULO */
+
+  .titulo-seccion {
+    gap: 11px;
+
+    margin-bottom: 13px;
+  }
+
+  .numero-seccion {
+    width: 40px;
+    height: 40px;
+
+    font-size: 11px;
+  }
+
+  .titulo-seccion h3 {
+    font-size: 17px;
+  }
+
+  .titulo-seccion p {
+    font-size: 10.5px;
+  }
+
+
+  /* UNA MATERIA POR FILA */
+
+  .grid-materias {
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+  }
+
+  .tarjeta-materia {
+    min-height: 87px;
+
+    gap: 12px;
+
+    padding: 14px;
+
+    border-radius: 15px;
+  }
+
+  .materia-icono {
+    width: 47px;
+    height: 47px;
+
+    border-radius: 13px;
+
+    font-size: 21px;
+  }
+
+  .simulador-icono {
+    font-size: 16px;
+  }
+
+  .materia-info h3 {
+    font-size: 14px;
+  }
+
+  .materia-info p {
+    font-size: 11px;
+  }
+
+  .materia-flecha {
+    font-size: 27px;
+  }
+
+
+  /* CONFIGURACIÓN */
+
+  .configuracion-card {
+    padding: 25px 16px;
+
+    border-radius: 18px;
+  }
+
+  .configuracion-icono {
+    width: 57px;
+    height: 57px;
+
+    border-radius: 16px;
+
+    font-size: 26px;
+  }
+
+  .configuracion-card h2 {
+    font-size: 22px;
+  }
+
+  .separador {
+    margin: 21px 0;
+  }
+
+  .cantidades {
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 8px;
+  }
+
+  .btn-cantidad {
+    min-height: 48px;
+  }
+
+  .btn-cantidad:last-child {
+    grid-column:
+      1 / -1;
+  }
+
+
+  /* EXAMEN */
+
+  .contenedor-examen {
+    width:
+      calc(100% - 18px);
+
+    padding:
+      16px
+      0
+      calc(
+        35px +
+        env(safe-area-inset-bottom)
+      );
+  }
+
+  .examen-header {
+    gap: 9px;
+
+    margin-bottom: 11px;
+  }
+
+  .examen-materia {
+    max-width: 220px;
+
+    font-size: 14px;
+
+    line-height: 1.3;
+  }
+
+  .contador {
+    font-size: 10.5px;
+  }
+
+  .examen-header
+  .btn-terminar {
+    min-height: 38px;
+
+    padding: 6px 10px;
+
+    border-radius: 9px;
+
+    font-size: 10.5px;
+  }
+
+  .barra-progreso {
+    margin-bottom: 13px;
+  }
+
+
+  /* PREGUNTA */
+
+  .pregunta-card {
+    padding: 18px 14px;
+
+    border-radius: 16px;
+
+    box-shadow:
+      0 3px 13px rgba(16, 24, 40, 0.06);
+  }
+
+  .numero-pregunta {
+    margin-bottom: 11px;
+  }
+
+  .texto-pregunta {
+    margin-bottom: 18px;
+
+    font-size: 17px;
+
+    line-height: 1.45;
+  }
+
+
+  /* FIGURA */
+
+  .contenedor-figura {
+    margin-bottom: 18px;
+
+    padding: 9px;
+
+    border-radius: 11px;
+  }
+
+  .figura-boton img {
+    width: auto;
+
+    max-width: 100%;
+
+    max-height: 370px;
+  }
+
+
+  /* OPCIONES */
+
+  .opciones-respuesta {
+    gap: 8px;
+  }
+
+  .opcion-respuesta {
+    min-height: 58px;
+
+    gap: 10px;
+
+    padding: 10px;
+
+    border-radius: 11px;
+  }
+
+  .letra-opcion {
+    width: 34px;
+    height: 34px;
+
+    border-radius: 9px;
+
+    font-size: 12px;
+  }
+
+  .texto-opcion {
+    font-size: 13.5px;
+
+    line-height: 1.43;
+  }
+
+
+  /* RETROALIMENTACIÓN */
+
+  .retroalimentacion {
+    gap: 9px;
+
+    margin-top: 13px;
+
+    padding: 11px;
+  }
+
+  .resultado-icono {
+    width: 30px;
+    height: 30px;
+  }
+
+  .retroalimentacion h3 {
+    font-size: 13px;
+  }
+
+  .retroalimentacion p {
+    font-size: 11.5px;
+  }
+
+
+  /* ANTERIOR / SIGUIENTE */
+
+  .navegacion-examen {
+    gap: 8px;
+
+    margin-top: 12px;
+  }
+
+  .navegacion-examen button {
+    flex: 1;
+
+    min-height: 46px;
+
+    padding: 8px 9px;
+
+    font-size: 12px;
+  }
+
+
+  /* RESULTADOS */
+
+  .resultado-card {
+    padding: 26px 15px;
+
+    border-radius: 18px;
+  }
+
+  .resultado-final-icono {
+    width: 61px;
+    height: 61px;
+
+    font-size: 26px;
+  }
+
+  .resultado-card h2 {
+    font-size: 24px;
+  }
+
+  .porcentaje-circular {
+    width: 128px;
+    height: 128px;
+
+    margin: 23px auto;
+
+    border-width: 9px;
+  }
+
+  .porcentaje-circular strong {
+    font-size: 28px;
+  }
+
+  .estadisticas {
+    gap: 7px;
+  }
+
+  .estadistica {
+    padding: 13px 5px;
+  }
+
+  .estadistica span {
+    font-size: 20px;
+  }
+
+  .estadistica small {
+    font-size: 9.5px;
+  }
+
+  .resultado-botones {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* VISOR DE IMAGEN */
+
+  .modal-header {
+    padding:
+      8px 13px;
+  }
+
+  .zona-zoom {
+    padding: 7px;
+  }
+
+  .controles-zoom {
+    padding:
+      9px
+      11px
+      calc(
+        9px +
+        env(safe-area-inset-bottom)
+      );
+  }
+
+  .controles-zoom button {
+    min-height: 43px;
+  }
+
+
+  /* CONFIRMACIÓN */
+
+  .modal-confirmacion {
+    padding: 13px;
+  }
+
+  .modal-confirmacion-card {
+    padding: 24px 15px;
+
+    border-radius: 17px;
+  }
+
+  .modal-botones {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =========================================================
+   29. IPHONE / TELÉFONOS PEQUEÑOS
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .logo-texto span {
+    display: none;
+  }
+
+  .logo-texto h1 {
+    font-size: 14px;
+  }
+
+  .presentacion h2 {
+    font-size: 21px;
+  }
+
+  .presentacion p {
+    font-size: 12px;
+  }
+
+  .materia-info p {
+    font-size: 10.5px;
+  }
+
+  .texto-pregunta {
+    font-size: 16px;
+  }
+
+  .estadistica small {
+    font-size: 9px;
+  }
+
+}
+
+
+/* =========================================================
+   30. PC GRANDE
+========================================================= */
+
+@media (min-width: 1200px) {
+
+  .grid-materias {
+    grid-template-columns:
+      repeat(3, 1fr);
+  }
+
+  /*
+     Simulador DGAC ocupa toda
+     la primera fila visualmente.
+  */
+
+  .tarjeta-simulador {
+    grid-column:
+      1 / -1;
+  }
+
+}
+
+
+/* =========================================================
+   31. TABLET / PC
+   SIMULADOR DESTACADO
+========================================================= */
+
+@media (
+  min-width: 601px
+)
+and
+(
+  max-width: 1199px
+) {
+
+  .tarjeta-simulador {
+    grid-column:
+      1 / -1;
+  }
+
+}
+
+
+/* =========================================================
+   32. DISPOSITIVOS TÁCTILES
+========================================================= */
+
+@media (hover: none) {
+
+  .tarjeta-materia:hover {
+    transform: none;
+  }
+
+  .opcion-respuesta:hover:not(:disabled) {
+    transform: none;
+  }
+
+}
+
+
+/* =========================================================
+   33. TELÉFONO HORIZONTAL
+========================================================= */
+
+@media
+(max-height: 500px)
+and
+(orientation: landscape) {
+
+  .header-principal {
+    position: relative;
+  }
+
+  .contenedor-examen {
+    padding-top: 11px;
+  }
+
+  .pregunta-card {
+    padding: 16px;
+  }
+
+  .modal-header {
+    min-height: 49px;
+  }
+
+  .controles-zoom {
+    padding: 6px 11px;
+  }
+
+}
+
+
+/* =========================================================
+   34. REDUCIR ANIMACIONES
+========================================================= */
+
+@media
+(prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+
+    transition-duration:
+      0.01ms !important;
+
+    animation-duration:
+      0.01ms !important;
+
+    animation-iteration-count:
+      1 !important;
+  }
+
+}

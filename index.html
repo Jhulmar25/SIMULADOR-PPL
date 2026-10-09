@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+  >
+
+  <meta name="theme-color" content="#133B6C">
+
+  <meta
+    name="description"
+    content="Simulador de examen DGAC para Piloto Privado"
+  >
+
+  <title>Simulador DGAC | Piloto Privado</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
+
+  <header class="header-principal">
+
+    <div class="header-contenido">
+
+      <div class="logo-app">
+
+        <div class="logo-icono">
+          ✈
+        </div>
+
+        <div class="logo-texto">
+
+          <h1>
+            Simulador PP4 - CAPITANES
+          </h1>
+
+          <span>
+            Piloto Privado
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <button
+        id="btnInicio"
+        class="btn-header oculto"
+        type="button"
+      >
+        Inicio
+      </button>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       APLICACIÓN
+  ====================================================== -->
+
+  <main id="app">
+
+
+    <!-- =================================================
+         PANTALLA INICIO
+    ================================================== -->
+
+    <section
+      id="pantallaInicio"
+      class="pantalla activa"
+    >
+
+      <div class="contenedor">
+
+
+        <!-- PRESENTACIÓN -->
+
+        
+
+
+
+        <!-- TÍTULO -->
+
+        <div class="titulo-seccion">
+
+          <span class="numero-seccion">
+            01
+          </span>
+
+          <div>
+
+            <h3>
+              Selecciona una opción
+            </h3>
+
+            <p>
+              Banco de preguntas para Piloto Privado
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             LISTA
+        ================================================== -->
+
+        <div
+          id="listaMaterias"
+          class="grid-materias"
+        >
+
+
+          <!-- ===============================================
+               SIMULADOR GENERAL
+               SIEMPRE 40 PREGUNTAS
+          ================================================ -->
+
+          <button
+            id="btnSimuladorGeneral"
+            class="tarjeta-materia tarjeta-simulador"
+            type="button"
+          >
+
+            <div class="materia-icono simulador-icono">
+              40
+            </div>
+
+            <div class="materia-info">
+
+              <h3>
+                Simulador Piloto Privado
+              </h3>
+
+              <p>
+                Examen general · 40 preguntas
+              </p>
+
+            </div>
+
+            <div class="materia-flecha">
+              ›
+            </div>
+
+          </button>
+
+
+
+          <!-- AERODINÁMICA -->
+
+          <button
+            class="tarjeta-materia"
+            data-materia="aerodinamica"
+            type="button"
+          >
+
+            <div class="materia-icono">
+              ✈
+            </div>
+
+            <div class="materia-info">
+
+              <h3>
+                Aerodinámica
+              </h3>
+
+              <p>
+                Principios y fundamentos del vuelo
+              </p>
+
+            </div>
+
+            <div class="materia-flecha">
+              ›
+            </div>
+
+          </button>
+
+
+
+          <!-- COMUNICACIÓN -->
+
+          <button
+            class="tarjeta-materia"
+            data-materia="comunicacion"
+            type="button"
+          >
+
+            <div class="materia-icono">
+              🎧
+            </div>
+
+            <div class="materia-info">
+
+              <h3>
+                Comunicación
+              </h3>
+
+              <p>
+                Comunicaciones aeronáuticas
+              </p>
+
+            </div>
+
+            <div class="materia-flecha">
+              ›
+            </div>
+
+          </button>
+
+
+
+          <!-- INSTRUMENTOS -->
+
+          <button
+            class="tarjeta-materia"
+            data-materia="instrumentos"
+            type="button"
+          >
+
+            <div class="materia-icono">
+              ◉
+            </div>
+
+            <div class="materia-info">
+
+              <h3>
+                Instrumentos
+              </h3>
+
+              <p>
+                Instrumentos y sistemas de vuelo
+              </p>
+
+            </div>
+
+            <div class="materia-flecha">
+              ›
+            </div>
+
+          </button>
+
+
+
+          <!-- METEOROLOGÍA -->
+
+          <button
+            class="tarjeta-materia"
+            data-materia="meteorologia"
+            type="button"
+          >
+
+            <div class="materia-icono">
+              ☁
+            </div>
+
+            <div class="materia-info">
+
+              <h3>
+                Meteorología
+              </h3>
+
+              <p>
+                Condiciones y fenómenos meteorológicos
+              </p>
+
+            </div>
+
+            <div class="materia-flecha">
+              ›
+            </div>
+
+          </button>
+
+
+
+          <!-- NAVEGACIÓN -->
+
+          <button
+            class="tarjeta-materia"
+            data-materia="navegacion"
+            type="button"
+          >
+
+            <div class="materia-icono">
+              🧭
+            </div>
+
+            <div class="materia-info">
+
+              <h3>
+                Navegación
+              </h3>
+
+              <p>
+                Navegación y planificación de vuelo
+              </p>
+
+            </div>
+
+            <div class="materia-flecha">
+              ›
+            </div>
+
+          </button>
+
+
+
+          <!-- PERFORMANCE -->
+
+          <button
+            class="tarjeta-materia"
+            data-materia="perfomance"
+            type="button"
+          >
+
+            <div class="materia-icono">
+              📈
+            </div>
+
+            <div class="materia-info">
+
+              <h3>
+                Performance
+              </h3>
+
+              <p>
+                Rendimiento de la aeronave
+              </p>
+
+            </div>
+
+            <div class="materia-flecha">
+              ›
+            </div>
+
+          </button>
+
+
+
+          <!-- PROCEDIMIENTOS OPERACIONALES -->
+
+          <button
+            class="tarjeta-materia"
+            data-materia="procedimientos"
+            type="button"
+          >
+
+            <div class="materia-icono">
+              ✓
+            </div>
+
+            <div class="materia-info">
+
+              <h3>
+                Procedimientos Operacionales
+              </h3>
+
+              <p>
+                Procedimientos y operación segura
+              </p>
+
+            </div>
+
+            <div class="materia-flecha">
+              ›
+            </div>
+
+          </button>
+
+
+
+          <!-- REGLAMENTACIÓN -->
+
+          <button
+            class="tarjeta-materia"
+            data-materia="reglamentacion"
+            type="button"
+          >
+
+            <div class="materia-icono">
+              ⚖
+            </div>
+
+            <div class="materia-info">
+
+              <h3>
+                Reglamentación
+              </h3>
+
+              <p>
+                Normativa y reglamentación aeronáutica
+              </p>
+
+            </div>
+
+            <div class="materia-flecha">
+              ›
+            </div>
+
+          </button>
+
+
+
+          <!-- SERVICIO METEOROLÓGICO -->
+
+          <button
+            class="tarjeta-materia"
+            data-materia="servicioMeteorologico"
+            type="button"
+          >
+
+            <div class="materia-icono">
+              🌦
+            </div>
+
+            <div class="materia-info">
+
+              <h3>
+                Servicio Meteorológico
+              </h3>
+
+              <p>
+                Información meteorológica aeronáutica
+              </p>
+
+            </div>
+
+            <div class="materia-flecha">
+              ›
+            </div>
+
+          </button>
+
+
+
+          <!-- SISTEMA DE AERONAVE -->
+
+          <button
+            class="tarjeta-materia"
+            data-materia="sistemaAeronave"
+            type="button"
+          >
+
+            <div class="materia-icono">
+              ⚙
+            </div>
+
+            <div class="materia-info">
+
+              <h3>
+                Sistema de Aeronave
+              </h3>
+
+              <p>
+                Sistemas y componentes de la aeronave
+              </p>
+
+            </div>
+
+            <div class="materia-flecha">
+              ›
+            </div>
+
+          </button>
+
+
+
+          <!-- VUELO EN RUTA -->
+
+          <button
+            class="tarjeta-materia"
+            data-materia="vueloRuta"
+            type="button"
+          >
+
+            <div class="materia-icono">
+              ➤
+            </div>
+
+            <div class="materia-info">
+
+              <h3>
+                Vuelo en Ruta
+              </h3>
+
+              <p>
+                Operaciones y procedimientos en ruta
+              </p>
+
+            </div>
+
+            <div class="materia-flecha">
+              ›
+            </div>
+
+          </button>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         CONFIGURACIÓN DE MATERIA
+    ================================================== -->
+
+    <section
+      id="pantallaConfiguracion"
+      class="pantalla"
+    >
+
+      <div class="contenedor contenedor-pequeno">
+
+
+        <button
+          id="btnVolverMaterias"
+          class="btn-volver"
+          type="button"
+        >
+          ← Volver
+        </button>
+
+
+        <div class="configuracion-card">
+
+
+          <div class="configuracion-icono">
+            ✈
+          </div>
+
+
+          <p class="etiqueta">
+            MATERIA SELECCIONADA
+          </p>
+
+
+          <h2 id="nombreMateriaSeleccionada">
+            Materia
+          </h2>
+
+
+          <p id="totalPreguntasMateria">
+            0 preguntas disponibles
+          </p>
+
+
+          <div class="separador"></div>
+
+
+          <h3>
+            ¿Cuántas preguntas deseas practicar?
+          </h3>
+
+
+          <div
+            id="opcionesCantidad"
+            class="cantidades"
+          >
+
+            <button
+              class="btn-cantidad"
+              data-cantidad="10"
+              type="button"
+            >
+              10
+            </button>
+
+
+            <button
+              class="btn-cantidad"
+              data-cantidad="20"
+              type="button"
+            >
+              20
+            </button>
+
+
+            <button
+              class="btn-cantidad"
+              data-cantidad="30"
+              type="button"
+            >
+              30
+            </button>
+
+
+            <button
+              class="btn-cantidad"
+              data-cantidad="50"
+              type="button"
+            >
+              50
+            </button>
+
+
+            <button
+              class="btn-cantidad"
+              data-cantidad="todas"
+              type="button"
+            >
+              Todas
+            </button>
+
+          </div>
+
+
+          <button
+            id="btnComenzarExamen"
+            class="btn-principal"
+            type="button"
+            disabled
+          >
+            Comenzar examen
+          </button>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         EXAMEN
+    ================================================== -->
+
+    <section
+      id="pantallaExamen"
+      class="pantalla"
+    >
+
+      <div class="contenedor-examen">
+
+
+        <!-- CABECERA -->
+
+        <div class="examen-header">
+
+
+          <div>
+
+            <span
+              id="materiaExamen"
+              class="examen-materia"
+            >
+              Simulador DGAC
+            </span>
+
+
+            <div class="contador">
+
+              Pregunta
+
+              <strong id="preguntaActual">
+                1
+              </strong>
+
+              de
+
+              <strong id="totalPreguntasExamen">
+                40
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          <button
+            id="btnTerminar"
+            class="btn-terminar"
+            type="button"
+          >
+            Terminar
+          </button>
+
+
+        </div>
+
+
+
+        <!-- PROGRESO -->
+
+        <div class="barra-progreso">
+
+          <div
+            id="progresoExamen"
+            class="progreso"
+          ></div>
+
+        </div>
+
+
+
+        <!-- PREGUNTA -->
+
+        <article class="pregunta-card">
+
+
+          <div class="numero-pregunta">
+
+            <span>
+              PREGUNTA
+            </span>
+
+            <strong id="numeroPregunta">
+              1
+            </strong>
+
+          </div>
+
+
+          <h2
+            id="textoPregunta"
+            class="texto-pregunta"
+          >
+            Pregunta
+          </h2>
+
+
+
+          <!-- FIGURA -->
+
+          <div
+            id="contenedorFigura"
+            class="contenedor-figura oculto"
+          >
+
+            <p class="figura-titulo">
+
+              Figura
+
+              <span id="numeroFigura"></span>
+
+            </p>
+
+
+            <button
+              id="btnAbrirFigura"
+              class="figura-boton"
+              type="button"
+            >
+
+              <img
+                id="imagenPregunta"
+                src=""
+                alt="Figura de la pregunta"
+              >
+
+              <span class="mensaje-zoom">
+                🔍 Toca la imagen para ampliar
+              </span>
+
+            </button>
+
+          </div>
+
+
+
+          <!-- RESPUESTAS -->
+
+          <div
+            id="contenedorOpciones"
+            class="opciones-respuesta"
+          ></div>
+
+
+
+          <!-- CORRECCIÓN -->
+
+          <div
+            id="retroalimentacion"
+            class="retroalimentacion oculto"
+            aria-live="polite"
+          >
+
+            <div
+              id="iconoResultado"
+              class="resultado-icono"
+            ></div>
+
+
+            <div>
+
+              <h3 id="tituloResultado"></h3>
+
+              <p id="textoResultado"></p>
+
+            </div>
+
+          </div>
+
+
+        </article>
+
+
+
+        <!-- NAVEGACIÓN -->
+
+        <div class="navegacion-examen">
+
+
+          <button
+            id="btnAnterior"
+            class="btn-secundario"
+            type="button"
+          >
+            ← Anterior
+          </button>
+
+
+          <button
+            id="btnSiguiente"
+            class="btn-principal"
+            type="button"
+          >
+            Siguiente →
+          </button>
+
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         RESULTADOS
+    ================================================== -->
+
+    <section
+      id="pantallaResultados"
+      class="pantalla"
+    >
+
+      <div class="contenedor contenedor-pequeno">
+
+
+        <div class="resultado-card">
+
+
+          <div
+            id="resultadoIconoFinal"
+            class="resultado-final-icono"
+          >
+            ✓
+          </div>
+
+
+          <p class="etiqueta">
+            EXAMEN FINALIZADO
+          </p>
+
+
+          <h2>
+            Resultado
+          </h2>
+
+
+          <p
+            id="resultadoMateria"
+            class="resultado-materia"
+          >
+            Simulador DGAC
+          </p>
+
+
+
+          <!-- PORCENTAJE -->
+
+          <div class="porcentaje-circular">
+
+            <strong id="porcentajeResultado">
+              0%
+            </strong>
+
+            <span>
+              Puntaje
+            </span>
+
+          </div>
+
+
+
+          <!-- ESTADÍSTICAS -->
+
+          <div class="estadisticas">
+
+
+            <div class="estadistica correcta">
+
+              <span id="cantidadCorrectas">
+                0
+              </span>
+
+              <small>
+                Correctas
+              </small>
+
+            </div>
+
+
+            <div class="estadistica incorrecta">
+
+              <span id="cantidadIncorrectas">
+                0
+              </span>
+
+              <small>
+                Incorrectas
+              </small>
+
+            </div>
+
+
+            <div class="estadistica total">
+
+              <span id="cantidadTotal">
+                40
+              </span>
+
+              <small>
+                Total
+              </small>
+
+            </div>
+
+
+          </div>
+
+
+
+          <div class="resultado-botones">
+
+
+            <button
+              id="btnRepetirExamen"
+              class="btn-principal"
+              type="button"
+            >
+              Repetir examen
+            </button>
+
+
+            <button
+              id="btnOtraMateria"
+              class="btn-secundario"
+              type="button"
+            >
+              Elegir otra materia
+            </button>
+
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =====================================================
+       VISOR DE FIGURAS
+  ====================================================== -->
+
+  <div
+    id="modalImagen"
+    class="modal-imagen oculto"
+    role="dialog"
+    aria-modal="true"
+  >
+
+
+    <div class="modal-header">
+
+      <span id="modalTitulo">
+        Figura
+      </span>
+
+
+      <button
+        id="btnCerrarImagen"
+        class="btn-cerrar-modal"
+        type="button"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div
+      id="zonaZoom"
+      class="zona-zoom"
+    >
+
+      <img
+        id="imagenAmpliada"
+        src=""
+        alt="Figura ampliada"
+      >
+
+    </div>
+
+
+    <div class="controles-zoom">
+
+
+      <button
+        id="btnZoomMenos"
+        type="button"
+      >
+        −
+      </button>
+
+
+      <button
+        id="btnRestablecerZoom"
+        type="button"
+      >
+        100%
+      </button>
+
+
+      <button
+        id="btnZoomMas"
+        type="button"
+      >
+        +
+      </button>
+
+
+    </div>
+
+
+  </div>
+
+
+
+  <!-- =====================================================
+       CONFIRMAR TERMINAR
+  ====================================================== -->
+
+  <div
+    id="modalTerminar"
+    class="modal-confirmacion oculto"
+    role="dialog"
+    aria-modal="true"
+  >
+
+
+    <div class="modal-confirmacion-card">
+
+
+      <div class="modal-alerta">
+        !
+      </div>
+
+
+      <h2>
+        ¿Terminar examen?
+      </h2>
+
+
+      <p>
+        Se calculará tu resultado con las preguntas
+        respondidas hasta este momento.
+      </p>
+
+
+      <div class="modal-botones">
+
+
+        <button
+          id="btnCancelarTerminar"
+          class="btn-secundario"
+          type="button"
+        >
+          Continuar examen
+        </button>
+
+
+        <button
+          id="btnConfirmarTerminar"
+          class="btn-terminar"
+          type="button"
+        >
+          Terminar
+        </button>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+
+  <!-- =====================================================
+       BASES DE DATOS
+
+       ESTRUCTURA REAL:
+       datos-datos/
+  ====================================================== -->
+
+  <script src="datos-datos/aerodinamica.js"></script>
+
+  <script src="datos-datos/comunicacion.js"></script>
+
+  <script src="datos-datos/instrumentos.js"></script>
+
+  <script src="datos-datos/metereologia.js"></script>
+
+  <script src="datos-datos/navegacion.js"></script>
+
+  <script src="datos-datos/perfomance.js"></script>
+
+  <script src="datos-datos/procedimiento-operacionales.js"></script>
+
+  <script src="datos-datos/reglamentacion.js"></script>
+
+  <script src="datos-datos/servicio-metereologico.js"></script>
+
+  <script src="datos-datos/sistema-aeronave.js"></script>
+
+  <script src="datos-datos/vuelo-ruta.js"></script>
+
+
+
+  <!-- =====================================================
+       LÓGICA PRINCIPAL
+       SIEMPRE AL FINAL
+  ====================================================== -->
+
+  <script src="app.js"></script>
+
+
+</body>
+
+</html>
